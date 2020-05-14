@@ -311,6 +311,11 @@ class Launcher:
             # right now hardcoded to Chrome unless settings.BROWSER_COMMAND set
             self.browser_cmds = BROWSER_CMDS[platform]['chrome']
 
+        # when we have complicate browser commands given as a list
+        # stop checking
+        if len(self.browser_cmds[0]) > 1:
+            return
+
         first_browser_type = self.browser_cmds[0].lower()
         # check if browser is running
         if 'chrome' in first_browser_type:
